@@ -1,11 +1,14 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors');
+
 const app = express();
 const PORT = 3000;
 
 const FILE_PATH = path.join(__dirname, 'trials.csv');
 
+app.use(cors());
 app.use(express.text()); // Middleware для обработки текстового тела запроса
 app.use(express.json());  // Добавляем поддержку JSON
 app.use(express.urlencoded({ extended: true }));  // Для работы с формами
